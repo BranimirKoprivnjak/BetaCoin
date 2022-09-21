@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  /* flex-basis: 33%; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container > h4 {
+  font-size: 0.8rem;
+  font-weight: 400;
+  padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+  cursor: pointer;
+  border-radius: 0.6rem;
+  margin-right: 0.3rem;
+  transition: all 0.5s ease;
+}
+
+.selected {
+  background-color: rgba(12, 13, 14, 1);
+  color: rgb(111, 230, 169);
+}
+
+.star {
+  font-variation-settings: 'FILL' 0;
+  cursor: pointer;
+  margin-bottom: 0.4rem;
+  margin-right: 1.5rem;
+}
+
+.star-filled {
+  font-variation-settings: 'FILL' 1;
+  cursor: pointer;
+  margin-bottom: 0.4rem;
+  margin-right: 1.5rem;
+}

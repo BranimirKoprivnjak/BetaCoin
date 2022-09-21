@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7vh;
+}
+
+.left {
+  display: flex;
+  margin-left: 1.5rem;
+}
+
+.title {
+  margin-left: 1rem;
+  font-weight: 400;
+  text-shadow: 0 0 2px rgb(232, 230, 227), 0 0 2px rgb(232, 230, 227);
+  font-size: 1.3rem;
+}
+
+.home-icon {
+  text-shadow: 0 0 2px rgb(232, 230, 227);
+}
+
+.right {
+  display: flex;
+  margin-right: 1.5rem;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(41, 41, 67, 1);
+  border-radius: 5px;
+  height: 30px;
+  margin-right: 1rem;
+}
+
+.icon-wrapper {
+  display: flex;
+  margin-bottom: 2px;
+  padding: 0 0.6rem 0 0.6rem;
+}
+
+.search-icon {
+  color: rgba(114, 123, 158, 1);
+  font-size: 15px !important;
+  font-variation-settings: 'FILL' 0, 'wght' 800, 'GRAD' 0, 'opsz' 48;
+  margin-top: 1px;
+}
+
+.input {
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: rgba(16, 18, 24, 1);
+  border: none;
+  color: rgba(114, 123, 158, 1);
+  height: 22px;
+}
+
+.star-icon {
+  font-variation-settings: 'FILL' 1;
+  font-size: 18px !important;
+}
+
+/* removes default onfocus border */
+input:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: rgba(114, 123, 158, 1);
+}

@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(27, 30, 41, 1);
+  padding: 1rem;
+  border-radius: 0.8rem;
+  flex-grow: 1;
+  height: 125px;
+}
+
+.spacing {
+  margin-right: 1.5rem;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon-wrapper {
+  background-color: rgba(16, 18, 24, 1);
+  padding: 0.7rem;
+  border-radius: 0.8rem;
+}
+
+.icon {
+  font-size: 20px !important;
+  color: rgba(139, 111, 251, 1);
+  text-shadow: 0 0 2px rgb(139 111 251);
+}

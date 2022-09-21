@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+}
+
+.dot {
+  height: 9px;
+  width: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 6px;
+  margin-right: 1rem;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+}
+
+.value {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.symbol-wrapper {
+  display: flex;
+  margin-right: 0.5rem;
+}
+
+.symbol {
+  font-weight: 500;
+  color: rgba(114, 123, 158, 1);
+  margin-right: 0.5rem;
+}

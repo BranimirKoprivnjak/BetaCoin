@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 60%;
+  /* min-width: 1000px;
+  width: 1300px; */
+  padding: 0 1.5rem 0 1.5rem;
+  border-right: 1px solid rgba(41, 41, 67, 1);
+}

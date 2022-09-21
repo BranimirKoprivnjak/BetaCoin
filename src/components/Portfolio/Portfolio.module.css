@@ -1,0 +1,165 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 94vh;
+  flex-basis: 20%;
+  padding-left: 1.5rem;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  height: 6vh;
+  border-bottom: 1px solid rgba(41, 41, 67, 1);
+}
+
+.icon {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+  font-size: 20px !important;
+  color: rgba(139, 111, 251, 1);
+  text-shadow: 0 0 2px rgba(139, 111, 251, 1), 0 0 4px rgba(139, 111, 251, 1);
+  padding-right: 2.5rem;
+}
+
+.widgets {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+
+.selected {
+  color: rgb(232, 230, 227);
+  text-shadow: 0 0 2px rgb(232, 230, 227), 0 0 4px rgb(232, 230, 227);
+}
+
+.balance {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+/* circle */
+.center {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.outer {
+  /* background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);*/
+  background: conic-gradient(
+    rgb(42, 90, 218) 88deg,
+    rgb(165, 219, 255) 92deg 178deg,
+    rgb(247, 147, 26) 182deg 238deg,
+    rgb(250, 238, 215) 242deg 360deg
+  );
+  position: relative;
+  margin: 0 50px;
+  /* background: #111; */
+}
+
+.circle {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+}
+.outer button,
+.outer span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.outer button {
+  background: rgba(16, 18, 24, 1);
+  color: #f2f2f2;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  z-index: 9;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.circle button {
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+}
+.outer span {
+  height: 100%;
+  width: 100%;
+  background: inherit;
+}
+.button span {
+  border-radius: 50px;
+}
+.circle span {
+  border-radius: 50%;
+}
+.outer span:nth-child(1) {
+  filter: blur(3px);
+}
+.outer span:nth-child(2) {
+  filter: blur(5px);
+}
+
+/* custom circle styling */
+
+.button {
+  font-family: inherit;
+}
+
+.circle-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(114, 123, 158, 1);
+}
+
+.circle-value {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.circle-change {
+  font-size: 1.1rem;
+  color: rgb(111, 230, 169);
+}
+
+/* circle ends */
+
+.details {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.8rem;
+  color: rgba(114, 123, 158, 1);
+  text-decoration: underline;
+  margin-bottom: 2rem;
+}
+
+.prices {
+  display: flex;
+  flex-direction: column;
+}
+
+.widgets {
+  display: flex;
+  flex-direction: column;
+}
+
+.rows {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.widget-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(114, 123, 158, 1);
+}
+
+.widget-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}

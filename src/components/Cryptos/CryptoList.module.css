@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  /* it must have defined height to work */
+  overflow-y: auto;
+  height: 87vh;
+  /* margin-bottom: 1rem; */
+  border-top: 1px solid rgba(41, 41, 67, 1);
+}
+
+.message-title {
+  font-weight: 400;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+}
+
+.message-message {
+  font-size: 0.9rem;
+  color: rgba(101, 104, 116, 1);
+}
+
+.add-icon {
+  font-size: 18px;
+  margin-right: 0.5rem;
+}

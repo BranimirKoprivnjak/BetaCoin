@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 7vh;
+  border-bottom: 1px solid rgba(41, 41, 67, 1);
+}
+
+.icon {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+  font-size: 20px !important;
+  color: rgba(139, 111, 251, 1);
+  text-shadow: 0 0 1px rgba(139, 111, 251, 1), 0 0 2px rgba(139, 111, 251, 1);
+  padding-right: 3rem;
+}
+
+.selected {
+  color: rgb(232, 230, 227);
+  text-shadow: 0 0 1px rgb(232, 230, 227), 0 0 2px rgb(232, 230, 227);
+}

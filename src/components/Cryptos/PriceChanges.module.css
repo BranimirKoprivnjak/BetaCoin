@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-basis: 33%;
+  justify-content: space-evenly;
+  /* not the best solution */
+  padding-left: 2rem;
+}
+
+.interval {
+  color: rgba(114, 123, 158, 1);
+  font-weight: 400;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+}
+
+.selected {
+  background-color: rgba(27, 30, 41, 1);
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  transition: all 0.5s ease;
+  /* transform property */
+  cursor: pointer;
+}
+
+.box > h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}

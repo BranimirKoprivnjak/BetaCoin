@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-basis: 33%;
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.left > img {
+  height: 40px;
+  padding: 0 1rem 0 1rem;
+}
+
+.name > h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+}
+
+.name > h3 > span {
+  font-size: 18px;
+  margin-left: 0.6rem;
+}
+
+.down {
+  transform: rotate(0deg);
+  transition: transform 0.5s ease;
+}
+
+.up {
+  transform: rotate(180deg);
+  transition: transform 0.5s ease;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-basis: 15%;
+}
+
+.right > h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.right > p {
+  font-weight: 500;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  transition: all 1s linear;
+}
+
+.symbol {
+  color: rgba(114, 123, 158, 1);
+  font-weight: 500;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: bolder;
+}

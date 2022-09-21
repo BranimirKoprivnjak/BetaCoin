@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(41, 41, 67, 1);
+  border-radius: 4px;
+  height: 30px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: #fff;
+  height: 30px;
+}
+
+.options {
+  border: 1px solid rgba(41, 41, 67, 1);
+  display: none;
+  list-style: none;
+  padding: 0;
+  z-index: 40;
+  /* padding: 4px 0; */
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
+}
+
+.selected {
+  padding: 0 1rem 0 0.5rem;
+}
+
+.icon {
+  font-size: 16px !important;
+  color: rgba(114, 123, 158, 1);
+}
+
+.down {
+  transform: rotate(0deg);
+  transition: transform 0.5s ease;
+}
+
+.up {
+  transform: rotate(180deg);
+  transition: transform 0.5s ease;
+}
