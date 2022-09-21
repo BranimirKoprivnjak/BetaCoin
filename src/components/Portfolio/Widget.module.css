@@ -6,7 +6,8 @@
   padding: 1rem;
   border-radius: 0.8rem;
   flex-grow: 1;
-  height: 125px;
+  max-width: calc(50% - 2.6rem);
+  min-height: 125px;
 }
 
 .spacing {

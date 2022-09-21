@@ -1,5 +1,7 @@
 .container {
   display: flex;
+  flex-basis: 50%;
+  margin-left: 1.5rem;
 }
 
 .dot {

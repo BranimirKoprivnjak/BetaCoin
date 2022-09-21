@@ -10,7 +10,7 @@ const Coin = props => {
         className={classes.dot}
         style={{
           backgroundColor: props.color,
-          boxShadow: `0 0 2px ${props.color}, 0 0 4px ${props.color}`,
+          boxShadow: `0 0 3px ${props.color}, 0 0 6px ${props.color}`,
         }}
       ></div>
       <div className={classes.data}>

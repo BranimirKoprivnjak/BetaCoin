@@ -1,41 +1,26 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 94vh;
   flex-basis: 20%;
   padding-left: 1.5rem;
-  overflow-y: auto;
 }
 
-.header {
+.portfolio {
   display: flex;
-  justify-content: flex-end;
-  height: 6vh;
-  border-bottom: 1px solid rgba(41, 41, 67, 1);
-}
-
-.icon {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
-  font-size: 20px !important;
-  color: rgba(139, 111, 251, 1);
-  text-shadow: 0 0 2px rgba(139, 111, 251, 1), 0 0 4px rgba(139, 111, 251, 1);
-  padding-right: 2.5rem;
-}
-
-.widgets {
-  display: flex;
-  /* flex-wrap: wrap; */
-}
-
-.selected {
-  color: rgb(232, 230, 227);
-  text-shadow: 0 0 2px rgb(232, 230, 227), 0 0 4px rgb(232, 230, 227);
+  flex-direction: column;
+  height: 87vh;
 }
 
 .balance {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  align-items: center;
+  margin: 1.5rem;
+}
+
+.balance > h3 {
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 /* circle */
@@ -46,7 +31,6 @@
   justify-content: center;
 }
 .outer {
-  /* background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);*/
   background: conic-gradient(
     rgb(42, 90, 218) 88deg,
     rgb(165, 219, 255) 92deg 178deg,
@@ -55,12 +39,11 @@
   );
   position: relative;
   margin: 0 50px;
-  /* background: #111; */
 }
 
 .circle {
-  height: 180px;
-  width: 180px;
+  height: 175px;
+  width: 175px;
   border-radius: 50%;
 }
 .outer button,
@@ -82,8 +65,8 @@
 }
 
 .circle button {
-  height: 160px;
-  width: 160px;
+  height: 155px;
+  width: 155px;
   border-radius: 50%;
 }
 .outer span {
@@ -117,12 +100,13 @@
 }
 
 .circle-value {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 
 .circle-change {
   font-size: 1.1rem;
+  font-weight: 300;
   color: rgb(111, 230, 169);
 }
 
@@ -132,25 +116,37 @@
   display: flex;
   justify-content: flex-end;
   font-size: 0.8rem;
+  font-weight: 500;
   color: rgba(114, 123, 158, 1);
   text-decoration: underline;
+  margin-right: 1.5rem;
   margin-bottom: 2rem;
 }
 
-.prices {
-  display: flex;
-  flex-direction: column;
+.details:hover {
+  cursor: pointer;
 }
 
-.widgets {
+.coins {
   display: flex;
   flex-direction: column;
+  margin: 0.8rem 0 0.8rem 0;
+}
+
+.coin-row {
+  display: flex;
+  margin-bottom: 2rem;
 }
 
 .rows {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.widgets {
+  display: flex;
+  flex-direction: column;
 }
 
 .widget-text {
@@ -162,4 +158,8 @@
 .widget-title {
   font-weight: 600;
   margin-bottom: 0.5rem;
+}
+
+.green {
+  color: rgb(111, 230, 169);
 }
