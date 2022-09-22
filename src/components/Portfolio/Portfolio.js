@@ -56,7 +56,7 @@ const Portfolio = () => {
           </div>
         </div>
         <div className={classes.widgets}>
-          <div className={classes.rows}>
+          <div className={classes['widget-row']}>
             <Widget icon="show_chart" spacing={true}>
               <div className={`${classes['widget-title']} ${classes.green}`}>
                 $59.67
@@ -68,7 +68,7 @@ const Portfolio = () => {
               <div className={classes['widget-text']}>On your watchlist</div>
             </Widget>
           </div>
-          <div className={classes.rows}>
+          <div className={classes['widget-row']}>
             <Widget icon="currency_bitcoin" spacing={true}>
               <div className={classes['widget-title']}>39.56%</div>
               <div className={classes['widget-text']}>

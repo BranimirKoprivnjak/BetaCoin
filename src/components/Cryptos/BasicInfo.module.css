@@ -9,14 +9,17 @@
   align-items: center;
 }
 
-.left > img {
+.logo {
   height: 40px;
   padding: 0 1rem 0 1rem;
 }
 
-.name > h3 {
+.coin {
   font-size: 1.1rem;
   font-weight: 500;
+}
+
+.coin:hover {
   cursor: pointer;
 }
 
@@ -25,7 +28,7 @@
   flex-direction: column;
 }
 
-.name > h3 > span {
+.icon {
   font-size: 18px;
   margin-left: 0.6rem;
 }
@@ -40,6 +43,13 @@
   transition: transform 0.5s ease;
 }
 
+.symbol {
+  color: rgba(114, 123, 158, 1);
+  font-weight: 600;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+}
+
 .right {
   display: flex;
   flex-direction: column;
@@ -47,22 +57,14 @@
   flex-basis: 15%;
 }
 
-.right > h3 {
+.price {
   font-size: 1.1rem;
   font-weight: 600;
 }
 
-.right > p {
-  font-weight: 500;
+.change {
+  font-weight: 600;
   margin-top: 0.3rem;
   font-size: 0.8rem;
-  transition: all 1s linear;
-}
-
-.symbol {
-  color: rgba(114, 123, 158, 1);
-  font-weight: 500;
-  margin-top: 0.3rem;
-  font-size: 0.8rem;
-  font-weight: bolder;
+  transition: all 0.5s linear;
 }

@@ -6,6 +6,7 @@ import Chart from '../Charts/Chart';
 import Intervals from './Intervals';
 import DetailedChart from '../Charts/DetailedChart';
 import classes from './Crypto.module.css';
+import Card from '../UI/Card';
 
 const Crypto = React.forwardRef((props, ref) => {
   const { id } = props;
@@ -14,17 +15,17 @@ const Crypto = React.forwardRef((props, ref) => {
   const crypto = cryptos.find(crypto => crypto.id === id);
   const isDetailedChartShown = crypto.detailedChart.isShown;
 
-  const outerClass = `${classes.outer} ${
+  const outerContainerClass = `${classes.outer} ${
     !isDetailedChartShown ? '' : classes['outer-detailed']
   }`;
-  const innerClass = `${classes.inner} ${
+  const innerContainerClass = `${classes.inner} ${
     !isDetailedChartShown ? '' : classes['inner-detailed']
   }`;
 
   return (
     <>
-      <div ref={ref} className={outerClass}>
-        <div className={innerClass}>
+      <Card ref={ref} class={outerContainerClass}>
+        <div className={innerContainerClass}>
           <BasicInfo id={id} isDetailedChartShown={isDetailedChartShown} />
           {!isDetailedChartShown && (
             <>
@@ -35,7 +36,7 @@ const Crypto = React.forwardRef((props, ref) => {
           {isDetailedChartShown && <Intervals id={id} />}
         </div>
         {isDetailedChartShown && <DetailedChart id={id} />}
-      </div>
+      </Card>
     </>
   );
 });

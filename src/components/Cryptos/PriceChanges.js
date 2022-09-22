@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setColor, formatNumber } from '../../helpers/helpers';
 import { cryptosActions } from '../../store/cryptos-slice';
+import Card from '../UI/Card';
 import classes from './PriceChanges.module.css';
 
 const PriceChanges = React.memo(props => {
@@ -20,23 +21,24 @@ const PriceChanges = React.memo(props => {
     );
   };
 
-  // console.log('price changes', Date.now());
-
   return (
     <>
       <div className={classes.container}>
         {changePerc.map(change => (
-          <div
-            className={`${classes.box} ${
+          <Card
+            class={`${classes.box} ${
               selectedInterval === change.interval ? classes.selected : ''
             }`}
-            onClick={clickHandler.bind(null, change.interval, change.value)}
+            click={clickHandler.bind(null, change.interval, change.value)}
           >
-            <h3 style={{ color: setColor(change.value) }}>
+            <h3
+              className={classes.change}
+              style={{ color: setColor(change.value) }}
+            >
               {formatNumber(change.value)}%
             </h3>
             <p className={classes.interval}>{change.interval}</p>
-          </div>
+          </Card>
         ))}
       </div>
     </>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Card from '../UI/Card';
 import MaterialIcon from '../UI/MaterialIcon';
 import classes from './Sidebar.module.css';
 
@@ -14,7 +15,7 @@ const Sidebar = () => {
   const [selected, setSelected] = useState('home');
 
   return (
-    <div className={classes.container}>
+    <Card class={classes.container}>
       <div className={classes['title-wrapper']}>
         <h2 className={classes.title}>
           BETA<span>COIN</span>
@@ -38,7 +39,7 @@ const Sidebar = () => {
           <MaterialIcon type="power_settings_new" class={classes.icon} />
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

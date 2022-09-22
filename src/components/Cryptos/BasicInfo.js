@@ -29,26 +29,29 @@ const BasicInfo = React.memo(props => {
     dispatch(cryptosActions.toggleDetailedChart({ id }));
   };
 
-  // console.log('basic info', Date.now());
-
   return (
     <div className={classes.container}>
       <div className={classes.left}>
-        <img src={logo} alt={`${name} logo`} />
+        <img src={logo} className={classes.logo} alt={`${name} logo`} />
         <div className={classes.name}>
-          <h3 onClick={clickHandler}>
+          <h3 className={classes.coin} onClick={clickHandler}>
             {name}
             <MaterialIcon
               type="expand_more"
-              class={isArrowUp ? classes.up : classes.down}
+              class={`${classes.icon} ${isArrowUp ? classes.up : classes.down}`}
             />
           </h3>
           <p className={classes.symbol}>{symbol.toUpperCase()}</p>
         </div>
       </div>
       <div className={classes.right}>
-        <h3>${formattedPrice}</h3>
-        <p style={{ color: setColor(changePercAsNum) }}>${formattedChange}</p>
+        <h3 className={classes.price}>${formattedPrice}</h3>
+        <p
+          className={classes.change}
+          style={{ color: setColor(changePercAsNum) }}
+        >
+          ${formattedChange}
+        </p>
       </div>
     </div>
   );

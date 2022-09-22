@@ -42,14 +42,16 @@ const Intervals = props => {
         <h4
           key={interval.name}
           onClick={intervalClickHandler.bind(null, interval)}
-          className={selectedInterval === interval.name ? classes.selected : ''}
+          className={`${classes.interval} ${
+            selectedInterval === interval.name ? classes.selected : ''
+          }`}
         >
           {interval.name}
         </h4>
       ))}
       <MaterialIcon
         type="star"
-        class={isStarFilled ? classes['star-filled'] : classes.star}
+        class={`${classes.icon} ${isStarFilled ? classes.filled : ''}`}
         click={starClickHandler.bind(null, props.id)}
       />
     </div>

@@ -1,11 +1,10 @@
 .container {
   display: flex;
-  /* flex-basis: 33%; */
   justify-content: space-between;
   align-items: center;
 }
 
-.container > h4 {
+.interval {
   font-size: 0.8rem;
   font-weight: 400;
   padding: 0.4rem 0.8rem 0.4rem 0.8rem;
@@ -20,16 +19,13 @@
   color: rgb(111, 230, 169);
 }
 
-.star {
+.icon {
   font-variation-settings: 'FILL' 0;
   cursor: pointer;
   margin-bottom: 0.4rem;
   margin-right: 1.5rem;
 }
 
-.star-filled {
+.filled {
   font-variation-settings: 'FILL' 1;
-  cursor: pointer;
-  margin-bottom: 0.4rem;
-  margin-right: 1.5rem;
 }

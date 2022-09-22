@@ -1,10 +1,11 @@
+import Card from '../UI/Card';
 import MaterialIcon from '../UI/MaterialIcon';
 import classes from './Widget.module.css';
 
 const Widget = props => {
   return (
-    <div
-      className={`${classes.container} ${props.spacing ? classes.spacing : ''}`}
+    <Card
+      class={`${classes.container} ${props.spacing ? classes.spacing : ''}`}
     >
       <div className={classes['icon-container']}>
         <div className={classes['icon-wrapper']}>
@@ -12,7 +13,7 @@ const Widget = props => {
         </div>
       </div>
       <div className={classes.stats}>{props.children}</div>
-    </div>
+    </Card>
   );
 };
 
