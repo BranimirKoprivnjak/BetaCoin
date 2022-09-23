@@ -1,10 +1,12 @@
 import { chartDetailedOptions } from '../config/chart-config';
 import { colors } from '../config/config';
 import { formatNumber } from './helpers';
+import { Chart, ScriptableLineSegmentContext } from 'chart.js';
+import { ChartDataPoint } from '../models/chart/chart-models';
 
-export const getSegmentedLine = averagePrice => {
+export const getSegmentedLine = (averagePrice: number) => {
   return {
-    borderColor: ctx => {
+    borderColor: (ctx: ScriptableLineSegmentContext) => {
       const currentPoint = ctx.p1.parsed.y;
       const previousPoint = ctx.p0.parsed.y;
       const isIntersecting = currentPoint === averagePrice;
@@ -19,23 +21,25 @@ export const getSegmentedLine = averagePrice => {
   };
 };
 
-export const colorizePoints = (data, averagePrice) => {
+export const colorizePoints = (
+  data: ChartDataPoint[],
+  averagePrice: number
+) => {
   const colorBackgroudPoints = data.map(item =>
     item.y < averagePrice ? colors.RED.base : colors.GREEN.base
   );
   const colorBorderPoints = data.map(item =>
     item.y < averagePrice ? colors.RED.opaque : colors.GREEN.opaque
   );
-  chartDetailedOptions.elements.point.pointHoverBackgroundColor =
+  chartDetailedOptions.elements!.point!.hoverBackgroundColor =
     colorBackgroudPoints;
-  chartDetailedOptions.elements.point.pointHoverBorderColor = colorBorderPoints;
-  chartDetailedOptions.elements.point.pointBackgroundColor =
-    colorBackgroudPoints;
-  chartDetailedOptions.elements.point.pointBorderColor = colorBorderPoints;
+  chartDetailedOptions.elements!.point!.hoverBorderColor = colorBorderPoints;
+  chartDetailedOptions.elements!.point!.backgroundColor = colorBackgroudPoints;
+  chartDetailedOptions.elements!.point!.borderColor = colorBorderPoints;
 };
 
-export const drawAnnotationLine = averagePrice => {
-  chartDetailedOptions.plugins.annotation = {
+export const drawAnnotationLine = (averagePrice: number) => {
+  chartDetailedOptions.plugins!.annotation = {
     annotations: {
       annotationLine: {
         type: 'line',
@@ -48,7 +52,7 @@ export const drawAnnotationLine = averagePrice => {
           position: 'start',
           xAdjust: -7,
           font: {
-            weight: 500,
+            weight: '500',
             size: 11,
           },
           backgroundColor: colors.BLACK.black,
@@ -64,8 +68,8 @@ export const drawAnnotationLine = averagePrice => {
 export const drawTooltipLine = () => {
   return {
     id: 'tooltipLine',
-    beforeDraw: chart => {
-      if (chart.tooltip._active && chart.tooltip._active.length) {
+    beforeDraw: (chart: Chart) => {
+      if (chart.tooltip!._active && chart.tooltip!._active.length) {
         const ctx = chart.ctx;
         ctx.save();
         const activePoint = chart.tooltip._active[0];
@@ -75,7 +79,7 @@ export const drawTooltipLine = () => {
         ctx.beginPath();
         ctx.setLineDash([4, 4]);
         ctx.moveTo(activePoint.element.x, chart.chartArea.bottom);
-        ctx.lineTo(activePoint.element.x, chart.tooltip.y);
+        ctx.lineTo(activePoint.element.x, chart.tooltip!.y);
         ctx.lineWidth = 1;
         ctx.strokeStyle =
           activePoint.element.parsed.y < averagePrice

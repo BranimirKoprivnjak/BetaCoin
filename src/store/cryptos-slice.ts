@@ -1,16 +1,19 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice, current, PayloadAction } from '@reduxjs/toolkit';
 import { calc3dPriceChangePerc } from '../helpers/helpers';
+import { Crypto, CryptoList } from '../models/redux/redux-models';
+
+const initialState: CryptoList = {
+  cryptoList: [],
+};
 
 const cryptosSlice = createSlice({
   name: 'cryptos',
-  initialState: {
-    cryptoList: [],
-  },
+  initialState,
   reducers: {
-    addToCryptoList(state, action) {
+    addToCryptoList(state: CryptoList, action: PayloadAction<any>) {
       const { data, isInitFetch } = action.payload;
 
-      data.forEach((item, idx) => {
+      data.forEach((item: any, idx: number) => {
         const {
           sparkline_in_7d: sparkline,
           current_price: currentPrice,
@@ -43,7 +46,7 @@ const cryptosSlice = createSlice({
           sparkline: sparkline.price,
         };
 
-        const cryptoState = {
+        const cryptoState: Crypto = {
           id: item.id,
           data: crypto,
           chart: {
@@ -67,7 +70,7 @@ const cryptosSlice = createSlice({
 
       const crypto = state.cryptoList.find(item => item.id === id);
 
-      crypto.chart = {
+      crypto!.chart = {
         selectedChange: { value, interval },
       };
     },
@@ -77,14 +80,14 @@ const cryptosSlice = createSlice({
 
       const crypto = state.cryptoList.find(item => item.id === id);
 
-      crypto.detailedChart.interval = interval;
+      crypto!.detailedChart.interval = interval;
     },
 
     toggleDetailedChart(state, action) {
       const crypto = state.cryptoList.find(
         item => item.id === action.payload.id
       );
-      crypto.detailedChart.isShown = !crypto.detailedChart.isShown;
+      crypto!.detailedChart.isShown = !crypto!.detailedChart.isShown;
     },
   },
 });

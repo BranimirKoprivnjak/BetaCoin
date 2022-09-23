@@ -1,6 +1,13 @@
-import { colors, dates } from '../config/config';
+import {
+  colors,
+  hourlyFormat,
+  monthlyFormat,
+  yearlyFormat,
+} from '../config/config';
+import { ChartArea } from 'chart.js';
+import { Crypto } from '../models/redux/redux-models';
 
-export const formatNumber = num => {
+export const formatNumber = (num: number) => {
   const parts = num.toString().split('.');
   const fraction = !parts[1] ? '00' : parts[1];
   const integer = parts[0];
@@ -14,11 +21,15 @@ export const formatNumber = num => {
   }
 };
 
-export const setColor = value => {
+export const setColor = (value: string) => {
   return parseFloat(value) >= 0 ? colors.GREEN.base : colors.RED.base;
 };
 
-export const createColorGradient = (ctx, area, color) => {
+export const createColorGradient = (
+  ctx: CanvasRenderingContext2D,
+  area: ChartArea,
+  color: string
+) => {
   const gradient = ctx.createLinearGradient(0, area.bottom, 0, area.top);
 
   const gradientStartColor =
@@ -36,12 +47,18 @@ export const createColorGradient = (ctx, area, color) => {
   return gradient;
 };
 
-export const calc3dPriceChangePerc = (currentPrice, sparkline) => {
+export const calc3dPriceChangePerc = (
+  currentPrice: number,
+  sparkline: number[]
+) => {
   const price3daysAgo = sparkline[sparkline.length - 72];
   return ((currentPrice - price3daysAgo) / price3daysAgo) * 100;
 };
 
-export const prepareDataForDetailedChart = (prices, days) => {
+export const prepareDataForDetailedChart = (
+  prices: number[][],
+  days: number | string
+) => {
   // [date, price] => [{ x:date, y: price }]
   let decimatedData;
   if (days === 30) {
@@ -53,11 +70,7 @@ export const prepareDataForDetailedChart = (prices, days) => {
   }
 
   const options =
-    days === 1
-      ? dates.TIME
-      : days === 'max'
-      ? dates.YEAR_MONTH_DAY
-      : dates.MONTH_DAY_TIME;
+    days === 1 ? hourlyFormat : days === 'max' ? yearlyFormat : monthlyFormat;
 
   const averagePrice =
     decimatedData.reduce((a, b) => a + b[1], 0) / decimatedData.length;
@@ -87,7 +100,7 @@ export const prepareDataForDetailedChart = (prices, days) => {
   return [formattedData, averagePrice];
 };
 
-export const prepareDataForChart = crypto => {
+export const prepareDataForChart = (crypto: Crypto) => {
   // price => [{ x:date, y: price }]
   const { sparkline, currentPrice, lastUpdated } = crypto.data;
   const { selectedChange } = crypto.chart;
@@ -109,7 +122,7 @@ export const prepareDataForChart = crypto => {
 
   const formattedData = [];
 
-  const options = step === 1 ? dates.TIME : dates.MONTH_DAY_TIME;
+  const options = step === 1 ? hourlyFormat : monthlyFormat;
 
   const currentDate = new Date();
   const latestFullHour =
@@ -128,8 +141,6 @@ export const prepareDataForChart = crypto => {
     });
     idx++;
   }
-
-  // const formattedData = decimatedData.map(item => ({ y: item }));
 
   formattedData.push({
     x: new Date(lastUpdated).toLocaleString(undefined, options),

@@ -14,3 +14,7 @@ make chartjs responsive - follow the article
 200 - fix a ALL interval bug
 200 - ethereum arrow should be facing up
 200 - if portfolio is empty and u filter, show message to user
+ts -> object is possibly undefined (cryptos-slice.ts)
+ts -> detailedChart.interval.days should be strings, currently nums and 'max' string
+ts -> formatNumber func should have a return type string
+ts -> chart-helpers, draw vertical annotation, fix problems with types

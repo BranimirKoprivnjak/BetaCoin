@@ -1,10 +1,10 @@
-import { Chart } from 'chart.js';
+import { Chart, ChartConfiguration, ChartOptions } from 'chart.js';
 import { formatNumber } from '../helpers/helpers';
 import { colors } from './config';
 
 Chart.defaults.font.family = 'Barlow';
 
-export const chartOptions = {
+export const chartOptions: ChartOptions = {
   animation: false,
   // parsing: false,
   normalized: true,
@@ -53,7 +53,7 @@ export const chartOptions = {
   },
 };
 
-export const chartDetailedOptions = {
+export const chartDetailedOptions: ChartOptions = {
   // parsing: false,
   responsive: true,
   maintainAspectRatio: false,
@@ -103,7 +103,7 @@ export const chartDetailedOptions = {
             index === Math.floor(len / 1.33) ||
             index === Math.floor(len / 1.09)
           )
-            return this.getLabelForValue(val);
+            return this.getLabelForValue(+val);
         },
         maxRotation: 0,
         color: colors.PURPLE.light,
@@ -118,9 +118,9 @@ export const chartDetailedOptions = {
   elements: {
     point: {
       radius: 0,
-      pointHoverRadius: 4,
-      pointHoverBorderWidth: 12,
       hitRadius: 7,
+      hoverRadius: 4,
+      hoverBorderWidth: 12,
     },
   },
 };

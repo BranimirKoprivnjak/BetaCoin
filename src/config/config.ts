@@ -33,20 +33,20 @@ export const colors = {
   },
 };
 
-export const dates = {
-  TIME: {
-    hour: 'numeric',
-    minute: 'numeric',
-  },
-  MONTH_DAY_TIME: {
-    hour: 'numeric',
-    minute: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  },
-  YEAR_MONTH_DAY: {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  },
+export const hourlyFormat: Intl.DateTimeFormatOptions = {
+  hour: 'numeric',
+  minute: 'numeric',
+};
+
+export const monthlyFormat: Intl.DateTimeFormatOptions = {
+  hour: 'numeric',
+  minute: 'numeric',
+  month: 'short',
+  day: 'numeric',
+};
+
+export const yearlyFormat: Intl.DateTimeFormatOptions = {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
 };

@@ -1,12 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Wallet } from '../models/redux/redux-models';
+
+const initialState: Wallet = {
+  wallet: [],
+};
 
 const userSlice = createSlice({
   name: 'user',
-  initialState: {
-    wallet: [],
-  },
+  initialState,
   reducers: {
-    addRemoveCrypto(state, action) {
+    addRemoveCrypto(state: Wallet, action: PayloadAction<string>) {
       const { wallet } = state;
       const existingCrypto = wallet.find(id => id === action.payload);
       if (existingCrypto) {
