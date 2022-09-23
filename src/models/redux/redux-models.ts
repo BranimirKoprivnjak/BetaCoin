@@ -1,3 +1,5 @@
+import store from '../../store/redux';
+
 export interface Wallet {
   wallet: string[];
 }
@@ -26,7 +28,7 @@ export interface Crypto {
     isShown: boolean;
     interval: {
       name: string;
-      days: number;
+      days: string;
     };
   };
 }
@@ -34,3 +36,7 @@ export interface Crypto {
 export interface CryptoList {
   cryptoList: Crypto[];
 }
+
+// custom redux hooks types, https://redux.js.org/usage/usage-with-typescript
+export type RootState = ReturnType<typeof store.getState>;
+export type Dispatch = typeof store.dispatch;

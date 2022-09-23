@@ -1,24 +1,29 @@
 import { useCallback, useEffect, useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useCustomDispatch, useCustomSelector } from '../../hooks/use-redux';
 import Crypto from './Crypto';
 import { cryptosActions } from '../../store/cryptos-slice';
 import classes from './CryptoList.module.css';
 import useHttp from '../../hooks/use-http';
 import Spinner from '../UI/Spinner';
 import Message from '../UI/Message';
+import { CryptoList } from '../../models/redux/redux-models';
 
-const CryptoList = props => {
-  const { cryptos, user } = useSelector(state => state);
-  const dispatch = useDispatch();
+const CryptoList = ({
+  searchQuery,
+  dashboardShowsPortfolio,
+}: {
+  searchQuery: string;
+  dashboardShowsPortfolio: boolean;
+}) => {
+  const { cryptos, user } = useCustomSelector(state => state);
+  const dispatch = useCustomDispatch();
   const [pageNum, setPageNum] = useState(1);
 
   const { isLoading, error, sendRequest, hasMore } = useHttp();
 
-  const { searchQuery, dashboardShowsPortfolio } = props;
-
-  const observer = useRef();
+  const observer = useRef<IntersectionObserver>();
   const lastCryptoRef = useCallback(
-    node => {
+    (node: HTMLDivElement) => {
       if (isLoading) return;
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver(
@@ -27,26 +32,26 @@ const CryptoList = props => {
             setPageNum(prevPageNum => prevPageNum + 1);
           }
         },
-        [0.9]
+        [0.9] as IntersectionObserverInit
       );
       if (node) observer.current.observe(node);
     },
     [isLoading, hasMore]
   );
 
-  const filterCryptos = data => {
+  const filterCryptos = (cryptos: CryptoList) => {
     if (!dashboardShowsPortfolio) {
-      return data.filter(item =>
+      return cryptos.cryptoList.filter(item =>
         item.data.name.toLowerCase().includes(searchQuery)
       );
     }
-    return data
+    return cryptos.cryptoList
       .filter(item => user.wallet.includes(item.id))
       .filter(item => item.data.name.toLowerCase().includes(searchQuery));
   };
 
   useEffect(() => {
-    const handleData = data => {
+    const handleData = (data: any) => {
       const isInitFetch = pageNum === 1 ? true : false;
       dispatch(cryptosActions.addToCryptoList({ data, isInitFetch }));
     };
@@ -59,7 +64,7 @@ const CryptoList = props => {
     );
   }, [sendRequest, pageNum]);
 
-  const cryptosToShow = filterCryptos(cryptos.cryptoList);
+  const cryptosToShow = filterCryptos(cryptos);
 
   return (
     <>

@@ -13,8 +13,10 @@ const Header = () => {
         <MaterialIcon
           key={icon}
           type={icon}
-          class={`${classes.icon} ${selected === icon ? classes.selected : ''}`}
-          click={() => setSelected(icon)}
+          className={`${classes.icon} ${
+            selected === icon ? classes.selected : ''
+          }`}
+          onClick={() => setSelected(icon)}
         />
       ))}
     </div>

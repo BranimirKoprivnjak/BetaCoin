@@ -1,37 +1,42 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useCustomDispatch, useCustomSelector } from '../../hooks/use-redux';
 import { cryptosActions } from '../../store/cryptos-slice';
 import { userActions } from '../../store/user-slice';
 import MaterialIcon from '../UI/MaterialIcon';
 import classes from './Intervals.module.css';
 
 const intervals = [
-  { name: '24h', days: 1 },
-  { name: '3d', days: 3 },
-  { name: '7d', days: 7 },
-  { name: '1M', days: 30 },
-  { name: '3M', days: 90 },
-  { name: '1Y', days: 365 },
+  { name: '24h', days: '1' },
+  { name: '3d', days: '3' },
+  { name: '7d', days: '7' },
+  { name: '1M', days: '30' },
+  { name: '3M', days: '90' },
+  { name: '1Y', days: '365' },
   { name: 'ALL', days: 'max' },
 ];
 
-const Intervals = props => {
-  const dispatch = useDispatch();
-  const { cryptos, user } = useSelector(state => state);
+const Intervals = ({ id }: { id: string }) => {
+  const dispatch = useCustomDispatch();
+  const { cryptos, user } = useCustomSelector(state => state);
 
-  const crypto = cryptos.cryptoList.find(crypto => crypto.id === props.id);
+  const crypto = cryptos.cryptoList.find(crypto => crypto.id === id);
+
+  // refactor
+  if (crypto === undefined)
+    return <p>Error! .find method didn't found crypto</p>;
+
   const selectedInterval = crypto.detailedChart.interval.name;
 
-  const isCryptoInWallet = user.wallet.find(id => id === props.id);
+  const isCryptoInWallet = user.wallet.find(id => id === id);
   const [isStarFilled, setIsStarFilled] = useState(
     isCryptoInWallet ? true : false
   ); //redux -> local storage
 
-  const intervalClickHandler = interval => {
-    dispatch(cryptosActions.onNewInterval({ id: props.id, interval }));
+  const intervalClickHandler = (interval: { name: string; days: string }) => {
+    dispatch(cryptosActions.onNewInterval({ id, interval }));
   };
 
-  const starClickHandler = id => {
+  const starClickHandler = (id: string) => {
     setIsStarFilled(filled => !filled);
     dispatch(userActions.addRemoveCrypto(id));
   };
@@ -51,8 +56,8 @@ const Intervals = props => {
       ))}
       <MaterialIcon
         type="star"
-        class={`${classes.icon} ${isStarFilled ? classes.filled : ''}`}
-        click={starClickHandler.bind(null, props.id)}
+        className={`${classes.icon} ${isStarFilled ? classes.filled : ''}`}
+        onClick={starClickHandler.bind(null, id)}
       />
     </div>
   );

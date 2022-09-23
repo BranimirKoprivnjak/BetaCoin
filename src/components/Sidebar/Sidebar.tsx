@@ -15,7 +15,7 @@ const Sidebar = () => {
   const [selected, setSelected] = useState('home');
 
   return (
-    <Card class={classes.container}>
+    <Card className={classes.container}>
       <div className={classes['title-wrapper']}>
         <h2 className={classes.title}>
           BETA<span>COIN</span>
@@ -27,16 +27,16 @@ const Sidebar = () => {
             <MaterialIcon
               key={icon}
               type={icon}
-              class={`${classes.icon} ${
+              className={`${classes.icon} ${
                 selected === icon ? classes.selected : ''
               }`}
-              click={() => setSelected(icon)}
+              onClick={() => setSelected(icon)}
             />
           ))}
         </div>
         <div className={classes.icons}>
-          <MaterialIcon type="settings" class={classes.icon} />
-          <MaterialIcon type="power_settings_new" class={classes.icon} />
+          <MaterialIcon type="settings" className={classes.icon} />
+          <MaterialIcon type="power_settings_new" className={classes.icon} />
         </div>
       </div>
     </Card>

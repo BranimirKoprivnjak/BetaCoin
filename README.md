@@ -1,20 +1,13 @@
-todos:
-200 - randomize changes select
-200 - theres a bug that segment is green when it should be red (prev > curr)
-change select reexecutes all components(all 15 cryptos)
-200 - figure out how to assign class to google icons
-200 - test what happens if searchQuery is present and you scroll down
-500 - fix price change
-200 - error ui
-flickering on fast scrolling, mybe issue with css, some images trigger whole container to position differently?
-make chartjs responsive - follow the article
-200 - instead of passing crypto from cryptolist, pass only id
-200 - move sparkline and labels out of redux ?
-200 - investigate now wierd bugs happening on 24h detailed chart, remove 1st point
-200 - fix a ALL interval bug
-200 - ethereum arrow should be facing up
-200 - if portfolio is empty and u filter, show message to user
-ts -> object is possibly undefined (cryptos-slice.ts)
-ts -> detailedChart.interval.days should be strings, currently nums and 'max' string
-ts -> formatNumber func should have a return type string
-ts -> chart-helpers, draw vertical annotation, fix problems with types
+# About
+
+Beginner friendly Cryptocoin portfolio tracker. Currently only available
+as web app for desktops/laptops.
+
+## Todos:
+
+- optimize components reevaluation
+- flickering on fast scrolling though cryptos in dashboard, maybe issue with css?, some images trigger whole container to position differently?
+- make chartjs responsive - https://itnext.io/a-fully-responsive-chart-js-chart-91a72ef5e2c
+- formatNumber func should have a all case return statement
+- chart-helpers, draw vertical annotation, fix problems with types
+- add error handling if certain data about crypto is not available

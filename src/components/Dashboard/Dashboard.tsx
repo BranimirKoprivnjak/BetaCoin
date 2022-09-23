@@ -7,7 +7,7 @@ const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [dashboardShowsPortfolio, setDashboardShowsPortfolio] = useState(false);
 
-  const dashboardViewHandler = view => {
+  const dashboardViewHandler = (view: string) => {
     if (view === 'portfolio') setDashboardShowsPortfolio(true);
     else setDashboardShowsPortfolio(false);
   };

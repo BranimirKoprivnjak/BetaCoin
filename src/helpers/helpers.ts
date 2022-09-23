@@ -97,7 +97,8 @@ export const prepareDataForDetailedChart = (
     });
   }
 
-  return [formattedData, averagePrice];
+  // https://bobbyhadz.com/blog/typescript-return-multiple-values-from-function
+  return [formattedData, averagePrice] as const;
 };
 
 export const prepareDataForChart = (crypto: Crypto) => {

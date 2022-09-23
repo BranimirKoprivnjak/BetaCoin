@@ -2,17 +2,27 @@ import { useState } from 'react';
 import MaterialIcon from './MaterialIcon';
 import classes from './Select.module.css';
 
-// wrap in useMemo -> seems fine
-const Select = props => {
+type Option = {
+  name: string;
+  value: JSX.Element | string;
+};
+
+const Select = ({
+  options,
+  onOptionChange,
+}: {
+  options: Option[];
+  onOptionChange?: (view: string) => void;
+}) => {
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(props.options[0].value);
+  const [selectedOption, setSelectedOption] = useState(options[0].value);
 
   const toggleOptions = () => {
     setIsOptionsOpen(isOpen => !isOpen);
   };
 
-  const setSelectedAndClose = option => {
-    props.onOptionChange(option.name);
+  const setSelectedAndClose = (option: Option) => {
+    onOptionChange && onOptionChange(option.name);
     setIsOptionsOpen(false);
     setSelectedOption(option.value);
   };
@@ -23,11 +33,13 @@ const Select = props => {
         <div className={classes.selected}>{selectedOption}</div>
         <MaterialIcon
           type="arrow_drop_down"
-          class={`${classes.icon} ${isOptionsOpen ? classes.up : classes.down}`}
+          className={`${classes.icon} ${
+            isOptionsOpen ? classes.up : classes.down
+          }`}
         />
       </button>
       <ul className={`${classes.options} ${isOptionsOpen ? classes.show : ''}`}>
-        {props.options.map(option => (
+        {options.map((option: Option) => (
           <li
             onClick={() => {
               setSelectedAndClose(option);

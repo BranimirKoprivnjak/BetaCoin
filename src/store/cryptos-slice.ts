@@ -54,7 +54,7 @@ const cryptosSlice = createSlice({
           },
           detailedChart: {
             isShown: false,
-            interval: { name: '24h', days: 1 },
+            interval: { name: '24h', days: '1' },
           },
         };
 

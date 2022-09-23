@@ -6,17 +6,21 @@ import {
   prepareDataForChart,
   setColor,
 } from '../../helpers/helpers';
-import classes from './Chart.module.css';
+import classes from './LineChart.module.css';
 
 import '../../config/chart-registrables';
+import { Crypto } from '../../models/redux/redux-models';
+import { Chart, ChartData } from 'chart.js';
+import { ChartDataPoint } from '../../models/chart/chart-models';
 
-const Chart = props => {
-  const [chartData, setChartData] = useState({
+const LineChart = ({ crypto }: { crypto: Crypto }) => {
+  const [chartData, setChartData] = useState<
+    ChartData<'line', ChartDataPoint[]>
+  >({
     datasets: [],
   });
-  const chartRef = useRef(null);
+  const chartRef = useRef<Chart<'line', ChartDataPoint[]> | null>(null);
 
-  const { crypto } = props;
   const selectedChange = crypto.chart.selectedChange;
 
   useEffect(() => {
@@ -25,7 +29,7 @@ const Chart = props => {
     if (!chart) return;
 
     const formattedData = prepareDataForChart(crypto);
-    const color = setColor(selectedChange.value);
+    const color = setColor(selectedChange.value.toString());
 
     const chartData = {
       datasets: [
@@ -52,4 +56,4 @@ const Chart = props => {
   );
 };
 
-export default Chart;
+export default LineChart;
