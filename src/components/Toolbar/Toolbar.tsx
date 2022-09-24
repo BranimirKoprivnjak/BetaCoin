@@ -1,7 +1,7 @@
-import Select from '../UI/Select';
-import classes from './Toolbar.module.css';
-import MaterialIcon from '../UI/MaterialIcon';
 import React from 'react';
+import Select from '../UI/Select';
+import MaterialIcon from '../UI/MaterialIcon';
+import * as classes from './Toolbar.module.css';
 
 const Toolbar = ({
   setSearchQuery,
@@ -19,20 +19,20 @@ const Toolbar = ({
     { name: 'all', value: 'All' },
     {
       name: 'portfolio',
-      value: <MaterialIcon type="star" className={classes['star-icon']} />,
+      value: <MaterialIcon type="star" className={classes.starIcon} />,
     },
   ];
 
   return (
     <div className={classes.container}>
       <div className={classes.left}>
-        <MaterialIcon type="home" className={classes['home-icon']} />
+        <MaterialIcon type="home" className={classes.homeIcon} />
         <h2 className={classes.title}>Dashboard</h2>
       </div>
       <div className={classes.right}>
-        <div className={classes['search-wrapper']}>
-          <div className={classes['icon-wrapper']}>
-            <MaterialIcon type="search" className={classes['search-icon']} />
+        <div className={classes.searchWrapper}>
+          <div className={classes.iconWrapper}>
+            <MaterialIcon type="search" className={classes.searchIcon} />
           </div>
           <input
             type="text"

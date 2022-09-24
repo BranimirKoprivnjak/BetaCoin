@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Card.module.css';
+import * as classes from './Card.module.css';
 
 const Card = React.forwardRef(
   (

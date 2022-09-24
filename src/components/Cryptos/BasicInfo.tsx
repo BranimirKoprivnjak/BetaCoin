@@ -4,7 +4,7 @@ import { useCustomDispatch, useCustomSelector } from '../../hooks/use-redux';
 import { formatNumber, setColor } from '../../helpers/helpers';
 import { cryptosActions } from '../../store/cryptos-slice';
 import MaterialIcon from '../UI/MaterialIcon';
-import classes from './BasicInfo.module.css';
+import * as classes from './BasicInfo.module.css';
 
 const BasicInfo = React.memo(
   ({

@@ -11,3 +11,4 @@ as web app for desktops/laptops.
 - formatNumber func should have a all case return statement
 - chart-helpers, draw vertical annotation, fix problems with types
 - add error handling if certain data about crypto is not available
+- prevent new coin fetching when showing portfolio dashboard

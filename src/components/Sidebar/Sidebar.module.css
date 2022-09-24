@@ -7,7 +7,7 @@
   width: 100px;
 }
 
-.title-wrapper {
+.titleWrapper {
   padding-bottom: 3rem;
   padding-top: 2rem;
 }
@@ -26,7 +26,7 @@
   text-shadow: 0 0 2px rgba(139, 111, 251, 1), 0 0 4px rgba(139, 111, 251, 1);
 }
 
-.icons-wrapper {
+.iconsWrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

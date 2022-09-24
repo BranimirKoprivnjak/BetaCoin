@@ -1,5 +1,5 @@
 import { Line } from 'react-chartjs-2';
-import classes from './DetailedChart.module.css';
+import * as classes from './DetailedChart.module.css';
 import { useRef, useState, useEffect } from 'react';
 import { useCustomSelector } from '../../hooks/use-redux';
 import { prepareDataForDetailedChart } from '../../helpers/helpers';

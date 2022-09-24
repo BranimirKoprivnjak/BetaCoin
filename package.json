@@ -4,9 +4,12 @@
   "description": "coin portfolio tracker",
   "source": "public/index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
+  "homepage": "https://branimirkoprivnjak.github.io/BetaCoin",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build --dist-dir build --public-url ."
   },
   "author": "Branimir Koprivnjak",
   "license": "ISC",
@@ -20,8 +23,10 @@
     "react-redux": "^8.0.2"
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "parcel": "^2.7.0",
     "process": "^0.11.10",
-    "typescript": "^4.8.3"
+    "typescript": "^4.8.3",
+    "typescript-plugin-css-modules": "^3.4.0"
   }
 }

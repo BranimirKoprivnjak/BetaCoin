@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Card from '../UI/Card';
 import MaterialIcon from '../UI/MaterialIcon';
-import classes from './Sidebar.module.css';
+import * as classes from './Sidebar.module.css';
 
 const upperIcons = [
   'home',
@@ -16,12 +16,12 @@ const Sidebar = () => {
 
   return (
     <Card className={classes.container}>
-      <div className={classes['title-wrapper']}>
+      <div className={classes.titleWrapper}>
         <h2 className={classes.title}>
           BETA<span>COIN</span>
         </h2>
       </div>
-      <div className={classes['icons-wrapper']}>
+      <div className={classes.iconsWrapper}>
         <div className={classes.icons}>
           {upperIcons.map(icon => (
             <MaterialIcon

@@ -1,6 +1,6 @@
 import Card from '../UI/Card';
 import MaterialIcon from '../UI/MaterialIcon';
-import classes from './Widget.module.css';
+import * as classes from './Widget.module.css';
 
 const Widget = ({
   spacing,
@@ -13,12 +13,12 @@ const Widget = ({
 }) => {
   return (
     <Card className={`${classes.container} ${spacing ? classes.spacing : ''}`}>
-      <div className={classes['icon-container']}>
-        <div className={classes['icon-wrapper']}>
+      <div className={classes.iconContainer}>
+        <div className={classes.iconWrapper}>
           <MaterialIcon type={icon} className={classes.icon} />
         </div>
       </div>
-      <div className={classes.stats}>{children}</div>
+      <div>{children}</div>
     </Card>
   );
 };

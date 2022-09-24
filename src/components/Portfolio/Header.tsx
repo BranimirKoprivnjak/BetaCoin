@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import MaterialIcon from '../UI/MaterialIcon';
-import classes from './Header.module.css';
+import * as classes from './Header.module.css';
 
 const icons = ['notifications', 'chat', 'dashboard', 'person'];
 

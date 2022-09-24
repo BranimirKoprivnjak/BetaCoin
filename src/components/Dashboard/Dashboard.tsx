@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Toolbar from '../Toolbar/Toolbar';
 import CryptoList from '../Cryptos/CryptoList';
-import classes from './Dashboard.module.css';
+import * as classes from './Dashboard.module.css';
 
 const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState('');

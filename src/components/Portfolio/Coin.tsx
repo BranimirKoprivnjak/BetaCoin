@@ -1,5 +1,5 @@
 import { colors } from '../../config/config';
-import classes from './Coin.module.css';
+import * as classes from './Coin.module.css';
 
 const Coin = ({
   change,
@@ -25,13 +25,12 @@ const Coin = ({
       ></div>
       <div className={classes.data}>
         <div className={classes.value}>{value}</div>
-        <div className={classes['symbol-wrapper']}>
+        <div className={classes.symbolWrapper}>
           <div className={classes.symbol}>{symbol}</div>
           <div
             style={{
               color: isPositiveChange ? colors.GREEN.base : colors.RED.base,
             }}
-            className={classes.change}
           >
             {change}
           </div>

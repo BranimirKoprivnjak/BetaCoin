@@ -6,13 +6,13 @@
   border-top: 1px solid rgba(41, 41, 67, 1);
 }
 
-.message-title {
+.messageTitle {
   font-weight: 500;
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
-.message-message {
+.messageMessage {
   font-weight: 500;
   font-size: 0.9rem;
   color: rgba(101, 104, 116, 1);

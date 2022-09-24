@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import MaterialIcon from './MaterialIcon';
-import classes from './Select.module.css';
+import * as classes from './Select.module.css';
 
 type Option = {
   name: string;

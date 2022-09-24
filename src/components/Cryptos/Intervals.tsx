@@ -3,7 +3,7 @@ import { useCustomDispatch, useCustomSelector } from '../../hooks/use-redux';
 import { cryptosActions } from '../../store/cryptos-slice';
 import { userActions } from '../../store/user-slice';
 import MaterialIcon from '../UI/MaterialIcon';
-import classes from './Intervals.module.css';
+import * as classes from './Intervals.module.css';
 
 const intervals = [
   { name: '24h', days: '1' },

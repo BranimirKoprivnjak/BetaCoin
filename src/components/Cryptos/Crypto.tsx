@@ -5,7 +5,7 @@ import PriceChanges from './PriceChanges';
 import LineChart from '../Charts/LineChart';
 import Intervals from './Intervals';
 import DetailedChart from '../Charts/DetailedChart';
-import classes from './Crypto.module.css';
+import * as classes from './Crypto.module.css';
 import Card from '../UI/Card';
 
 const Crypto = React.forwardRef(
@@ -21,10 +21,10 @@ const Crypto = React.forwardRef(
     const isDetailedChartShown = crypto!.detailedChart.isShown;
 
     const outerContainerClass = `${classes.outer} ${
-      !isDetailedChartShown ? '' : classes['outer-detailed']
+      !isDetailedChartShown ? '' : classes.outerDetailed
     }`;
     const innerContainerClass = `${classes.inner} ${
-      !isDetailedChartShown ? '' : classes['inner-detailed']
+      !isDetailedChartShown ? '' : classes.innerDetailed
     }`;
 
     return (

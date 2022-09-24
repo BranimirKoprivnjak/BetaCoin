@@ -3,7 +3,7 @@ import { useCustomDispatch, useCustomSelector } from '../../hooks/use-redux';
 import { setColor, formatNumber } from '../../helpers/helpers';
 import { cryptosActions } from '../../store/cryptos-slice';
 import Card from '../UI/Card';
-import classes from './PriceChanges.module.css';
+import * as classes from './PriceChanges.module.css';
 
 const PriceChanges = React.memo(({ id }: { id: string }) => {
   const dispatch = useCustomDispatch();

@@ -94,18 +94,18 @@
   font-family: inherit;
 }
 
-.circle-title {
+.circleTitle {
   font-size: 0.8rem;
   font-weight: 600;
   color: rgba(114, 123, 158, 1);
 }
 
-.circle-value {
+.circleValue {
   font-size: 1.1rem;
   font-weight: 600;
 }
 
-.circle-change {
+.circleChange {
   font-size: 1.1rem;
   font-weight: 300;
   color: rgb(111, 230, 169);
@@ -134,7 +134,7 @@
   margin: 0.8rem 0 0.8rem 0;
 }
 
-.coin-row {
+.coinRow {
   display: flex;
   margin-bottom: 2rem;
 }
@@ -144,19 +144,19 @@
   flex-direction: column;
 }
 
-.widget-row {
+.widgetRow {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
 
-.widget-text {
+.widgetText {
   font-size: 0.8rem;
   font-weight: 500;
   color: rgba(114, 123, 158, 1);
 }
 
-.widget-title {
+.widgetTitle {
   font-weight: 600;
   margin-bottom: 0.5rem;
 }

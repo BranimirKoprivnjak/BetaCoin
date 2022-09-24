@@ -1,5 +1,5 @@
 import React, { MouseEventHandler } from 'react';
-import classes from './MaterialIcon.module.css';
+import * as classes from './MaterialIcon.module.css';
 
 const MaterialIcon = ({
   type,

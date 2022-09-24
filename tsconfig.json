@@ -14,7 +14,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ] //https://code.visualstudio.com/docs/typescript/typescript-compiling#_using-the-workspace-version-of-typescript
   },
   "include": ["src"]
 }

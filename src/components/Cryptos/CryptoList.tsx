@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState, useRef } from 'react';
 import { useCustomDispatch, useCustomSelector } from '../../hooks/use-redux';
 import Crypto from './Crypto';
 import { cryptosActions } from '../../store/cryptos-slice';
-import classes from './CryptoList.module.css';
+import * as classes from './CryptoList.module.css';
 import useHttp from '../../hooks/use-http';
 import Spinner from '../UI/Spinner';
 import Message from '../UI/Message';
@@ -82,10 +82,8 @@ const CryptoList = ({
           dashboardShowsPortfolio &&
           !error && (
             <Message>
-              <h3 className={classes['message-title']}>
-                This portfolio is empty
-              </h3>
-              <p className={classes['message-message']}>
+              <h3 className={classes.messageTitle}>This portfolio is empty</h3>
+              <p className={classes.messageMessage}>
                 Click on star next to coin to get started
               </p>
             </Message>
@@ -93,7 +91,7 @@ const CryptoList = ({
         {isLoading && <Spinner />}
         {!isLoading && error && (
           <Message>
-            <h3 className={classes['message-title']}>Something went wrong!</h3>
+            <h3 className={classes.messageTitle}>Something went wrong!</h3>
           </Message>
         )}
       </div>

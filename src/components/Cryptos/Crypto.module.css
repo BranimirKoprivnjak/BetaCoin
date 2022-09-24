@@ -4,7 +4,7 @@
   margin-top: 1rem;
 }
 
-.outer-detailed {
+.outerDetailed {
   background-color: rgba(27, 30, 41, 1);
   padding-bottom: 2rem;
 }
@@ -16,6 +16,6 @@
   height: 100px;
 }
 
-.inner-detailed {
+.innerDetailed {
   justify-content: space-between;
 }

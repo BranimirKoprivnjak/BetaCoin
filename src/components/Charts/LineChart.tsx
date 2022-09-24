@@ -6,7 +6,7 @@ import {
   prepareDataForChart,
   setColor,
 } from '../../helpers/helpers';
-import classes from './LineChart.module.css';
+import * as classes from './LineChart.module.css';
 
 import '../../config/chart-registrables';
 import { Crypto } from '../../models/redux/redux-models';
