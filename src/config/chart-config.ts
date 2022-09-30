@@ -1,4 +1,4 @@
-import { Chart, ChartConfiguration, ChartOptions } from 'chart.js';
+import { Chart, ChartOptions } from 'chart.js';
 import { formatNumber } from '../helpers/helpers';
 import { colors } from './config';
 
@@ -22,12 +22,10 @@ export const chartOptions: ChartOptions = {
       displayColors: false, // removes color boxes
       titleFont: {
         weight: '600',
-        // size: 12,
       },
       titleMarginBottom: 2,
       bodyFont: {
         weight: '600',
-        // size: 12,
       },
       bodyColor: colors.GRAY.light,
       backgroundColor: colors.BLACK.black,
@@ -65,12 +63,10 @@ export const chartDetailedOptions: ChartOptions = {
       displayColors: false, // removes color boxes
       titleFont: {
         weight: '600',
-        // size: 12,
       },
       titleMarginBottom: 2,
       bodyFont: {
         weight: '600',
-        // size: 12,
       },
       bodyColor: colors.GRAY.light,
       backgroundColor: colors.BLACK.black,
@@ -107,8 +103,6 @@ export const chartDetailedOptions: ChartOptions = {
         },
         maxRotation: 0,
         color: colors.PURPLE.light,
-        // crossAlign: 'far', CONTROLS VERTICALLY
-        // align: 'end',
       },
     },
     y: {

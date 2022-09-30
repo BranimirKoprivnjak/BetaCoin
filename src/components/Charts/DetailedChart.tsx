@@ -15,6 +15,7 @@ import {
   drawTooltipLine,
 } from '../../helpers/chart-helpers';
 import { ChartDataPoint } from '../../models/chart/chart-models';
+import { colors } from '../../config/config';
 
 ChartJS.register(annotationPlugin);
 
@@ -27,6 +28,8 @@ const DetailedChart = ({ id }: { id: string }) => {
   const chartRef = useRef<ChartJS<'line', ChartDataPoint[]> | null>(null);
   const cryptos = useCustomSelector(state => state.cryptos.cryptoList);
 
+  const controller = new AbortController();
+  const signal = controller.signal;
   const { isLoading, error, sendRequest, hasMore } = useHttp();
 
   const crypto = cryptos.find(crypto => crypto.id === id);
@@ -56,8 +59,6 @@ const DetailedChart = ({ id }: { id: string }) => {
           {
             data: formattedData,
             segment: getSegmentedLine(averagePrice),
-            // fill: true,
-            // backgroundColor: createGradient()
           },
         ],
       };
@@ -72,9 +73,12 @@ const DetailedChart = ({ id }: { id: string }) => {
     sendRequest(
       {
         url: `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&interval=${interval}`,
+        signal,
       },
       handleData
     );
+
+    return () => controller.abort();
   }, [sendRequest, days]);
 
   return (

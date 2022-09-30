@@ -6,11 +6,16 @@ const useHttp = () => {
   const [hasMore, setHasMore] = useState(false);
 
   const sendRequest = useCallback(
-    async (requestConfig: { url: string }, applyData: any) => {
+    async (
+      requestConfig: { url: string; signal?: AbortSignal },
+      applyData: any
+    ) => {
       setIsLoading(true);
 
       try {
-        const response = await fetch(requestConfig.url);
+        const response = await fetch(requestConfig.url, {
+          signal: requestConfig.signal,
+        });
 
         if (!response.ok) throw new Error();
 

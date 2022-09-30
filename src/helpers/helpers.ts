@@ -15,10 +15,10 @@ export const formatNumber = (num: number) => {
   const formattedNum = commaInt + '.';
   if (fraction === '00') return formattedNum + fraction;
   const range = Math.min(fraction.length, 6);
-  for (let i = 0; i < range; i++) {
-    if (i === range - 1) return formattedNum + fraction.slice(0, range);
+  for (let i = 0; i < range - 1; i++) {
     if (fraction[i] !== '0') return formattedNum + fraction.slice(0, i + 2);
   }
+  return formattedNum + fraction.slice(0, range);
 };
 
 export const setColor = (value: string) => {
@@ -57,11 +57,11 @@ export const calc3dPriceChangePerc = (
 
 export const prepareDataForDetailedChart = (
   prices: number[][],
-  days: number | string
+  days: string
 ) => {
   // [date, price] => [{ x:date, y: price }]
   let decimatedData;
-  if (days === 30) {
+  if (days === '30') {
     decimatedData = prices.filter((_, idx) => idx % 2 === 0);
   } else if (days === 'max') {
     decimatedData = prices.filter((_, idx) => idx % 14 === 0);
@@ -70,7 +70,7 @@ export const prepareDataForDetailedChart = (
   }
 
   const options =
-    days === 1 ? hourlyFormat : days === 'max' ? yearlyFormat : monthlyFormat;
+    days === '1' ? hourlyFormat : days === 'max' ? yearlyFormat : monthlyFormat;
 
   const averagePrice =
     decimatedData.reduce((a, b) => a + b[1], 0) / decimatedData.length;

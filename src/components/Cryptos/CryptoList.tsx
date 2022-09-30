@@ -28,7 +28,13 @@ const CryptoList = ({
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver(
         entries => {
-          if (entries[0].isIntersecting && hasMore && pageNum <= 5) {
+          const shouldFetchMore =
+            entries[0].isIntersecting &&
+            hasMore &&
+            pageNum <= 5 &&
+            !dashboardShowsPortfolio;
+
+          if (shouldFetchMore) {
             setPageNum(prevPageNum => prevPageNum + 1);
           }
         },
@@ -40,14 +46,13 @@ const CryptoList = ({
   );
 
   const filterCryptos = (cryptos: CryptoList) => {
-    if (!dashboardShowsPortfolio) {
-      return cryptos.cryptoList.filter(item =>
-        item.data.name.toLowerCase().includes(searchQuery)
-      );
-    }
-    return cryptos.cryptoList
-      .filter(item => user.wallet.includes(item.id))
-      .filter(item => item.data.name.toLowerCase().includes(searchQuery));
+    const filteredCryptos = cryptos.cryptoList.filter(item =>
+      item.data.name.toLowerCase().includes(searchQuery)
+    );
+
+    if (!dashboardShowsPortfolio) return filteredCryptos;
+
+    return filteredCryptos.filter(item => user.wallet.includes(item.id));
   };
 
   useEffect(() => {
@@ -78,7 +83,7 @@ const CryptoList = ({
             }
           })}
         {!isLoading &&
-          !cryptosToShow.length &&
+          !user.wallet.length &&
           dashboardShowsPortfolio &&
           !error && (
             <Message>

@@ -41,6 +41,7 @@ const Select = ({
       <ul className={`${classes.options} ${isOptionsOpen ? classes.show : ''}`}>
         {options.map((option: Option) => (
           <li
+            key={option.name}
             onClick={() => {
               setSelectedAndClose(option);
             }}
