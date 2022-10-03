@@ -1,7 +1,18 @@
 import store from '../../store/redux';
 
 export interface Wallet {
-  wallet: string[];
+  wallet: {
+    id: string;
+    // transactions shouldn't be optional
+    transactions?: Transaction[];
+  }[];
+}
+
+export interface Transaction {
+  type: string;
+  date: string;
+  quantity: number;
+  pricePerCoin: number;
 }
 
 export interface Crypto {

@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Wallet } from '../models/redux/redux-models';
+import { Transaction, Wallet } from '../models/redux/redux-models';
 
+// { id: string, transactions: [{ date: Date, pricePerCoin: number, quantity: number, type: string }] }
 const initialState: Wallet = {
   wallet: [],
 };
@@ -11,13 +12,32 @@ const userSlice = createSlice({
   reducers: {
     addRemoveCrypto(state: Wallet, action: PayloadAction<string>) {
       const { wallet } = state;
-      const existingCrypto = wallet.find(id => id === action.payload);
+      const existingCrypto = wallet.find(coin => coin.id === action.payload);
       if (existingCrypto) {
-        const idx = wallet.indexOf(action.payload);
+        const idx = wallet.map(coin => coin.id).indexOf(action.payload);
         wallet.splice(idx, 1);
       } else {
-        wallet.push(action.payload);
+        wallet.push({ id: action.payload });
       }
+    },
+    addTransaction(
+      state: Wallet,
+      action: PayloadAction<{ id: string; transaction: Transaction }>
+    ) {
+      const { id, transaction } = action.payload;
+
+      const existingCoin = state.wallet.find(coin => coin.id === id);
+      if (!existingCoin) {
+        state.wallet.push({ id, transactions: [transaction] });
+      } else {
+        existingCoin.transactions!.push(transaction);
+      }
+    },
+    removeCoin(state: Wallet, action: PayloadAction<{ id: string }>) {
+      const idxToRemove = state.wallet
+        .map(coin => coin.id)
+        .indexOf(action.payload.id);
+      state.wallet.splice(idxToRemove, 1);
     },
   },
 });

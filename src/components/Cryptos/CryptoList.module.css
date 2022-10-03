@@ -7,13 +7,36 @@
 }
 
 .messageTitle {
-  font-weight: 500;
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
   margin-bottom: 0.5rem;
 }
 
 .messageMessage {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.9rem;
   color: rgba(101, 104, 116, 1);
+}
+
+.addButton {
+  background-color: rgba(139, 111, 251, 1);
+  margin-top: 1rem;
+}
+
+.addButton:hover {
+  background-color: rgba(115, 92, 209, 1);
+}
+
+.addIcon {
+  font-size: 14px;
+  background-color: rgba(232, 230, 227, 1);
+  color: rgba(139, 111, 251, 1);
+  border-radius: 50%;
+  font-variation-settings: 'wght' 700;
+  margin-right: 0.5rem;
+}
+
+.buttonText {
+  font-size: 0.8rem;
+  font-weight: 700;
 }

@@ -7,6 +7,8 @@ import useHttp from '../../hooks/use-http';
 import Spinner from '../UI/Spinner';
 import Message from '../UI/Message';
 import { CryptoList } from '../../models/redux/redux-models';
+import Button from '../UI/Button';
+import MaterialIcon from '../UI/MaterialIcon';
 
 const CryptoList = ({
   searchQuery,
@@ -52,7 +54,9 @@ const CryptoList = ({
 
     if (!dashboardShowsPortfolio) return filteredCryptos;
 
-    return filteredCryptos.filter(item => user.wallet.includes(item.id));
+    return filteredCryptos.filter(item =>
+      user.wallet.some(coin => coin.id === item.id)
+    );
   };
 
   useEffect(() => {
@@ -89,8 +93,12 @@ const CryptoList = ({
             <Message>
               <h3 className={classes.messageTitle}>This portfolio is empty</h3>
               <p className={classes.messageMessage}>
-                Click on star next to coin to get started
+                Add any coins to get started
               </p>
+              <Button className={classes.addButton}>
+                <MaterialIcon type="add" className={classes.addIcon} />
+                <p className={classes.buttonText}>Add New</p>
+              </Button>
             </Message>
           )}
         {isLoading && <Spinner />}

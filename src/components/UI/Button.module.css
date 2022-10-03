@@ -1,0 +1,12 @@
+.button {
+  border: none;
+  display: flex;
+  align-items: center;
+  color: inherit;
+  border-radius: 0.4rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.button:hover {
+  cursor: pointer;
+}
