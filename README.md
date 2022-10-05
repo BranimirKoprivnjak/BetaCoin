@@ -5,6 +5,8 @@ as web app for desktops/laptops.
 
 https://branimirkoprivnjak.github.io/BetaCoin/
 
+<img src="App.png" width=800>
+
 ## Todos:
 
 - optimize components reevaluation
